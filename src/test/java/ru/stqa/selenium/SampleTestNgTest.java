@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import ru.stqa.selenium.pages.HomePage;
 import ru.stqa.selenium.pages.TrainSearchPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class SampleTestNgTest extends TestNgTestBase {
 
   private HomePage homepage;
@@ -25,14 +27,15 @@ public class SampleTestNgTest extends TestNgTestBase {
 
 
   @Test
-  public void testHomePageHasAHeader() {
+  public void testHomePageHasAHeader() throws InterruptedException {
     driver.get(baseUrl);
     homepage.putTextToFieldFrom("Ako");
     homepage.putTextToFieldToWhere("Ashkelon");
   //  homepage.revers();
     homepage.clickSearch();
-  //searchPage.searchButton();
-driver.findElement(By.xpath("//div[@class='col-md-1 col-xs-1 col-sm-1 replaceBox']//button[@type='button']")).click();
+
+  searchPage.searchButton();
+//driver.findElement(By.xpath("//div[@class='col-md-1 col-xs-1 col-sm-1 replaceBox']//button[@type='button']")).click();
     Assert.assertTrue(true);
   }
 }
